@@ -1,0 +1,385 @@
+[gd_scene load_steps=27 format=3 uid="uid://cldonv6cud5tp"]
+
+[ext_resource type="Script" path="res://mobs/mob_1.gd" id="1_cfrls"]
+[ext_resource type="Texture2D" uid="uid://bl0jjoi423a8r" path="res://Player/AttackSpriteSheet.png" id="2_004pa"]
+[ext_resource type="Texture2D" uid="uid://xw7n6se02i0c" path="res://Player/SpriteSheet.png" id="2_s8a1u"]
+[ext_resource type="Script" path="res://mobs/HurtBox.gd" id="2_tsbgd"]
+[ext_resource type="Script" path="res://mobs/HitArea.gd" id="3_y8sp6"]
+
+[sub_resource type="Animation" id="Animation_76lr8"]
+resource_name = "Attack"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_lsvcb"]
+resource_name = "Death"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_v2q3j"]
+resource_name = "Down"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_puhef"]
+resource_name = "Hit"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_ht3pe"]
+resource_name = "Idle"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtus8"]
+resource_name = "Left"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_6qxuh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_si5o6"]
+resource_name = "Right"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_p4ckr"]
+resource_name = "Up"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aavmp"]
+_data = {
+"Attack": SubResource("Animation_76lr8"),
+"Death": SubResource("Animation_lsvcb"),
+"Down": SubResource("Animation_v2q3j"),
+"Hit": SubResource("Animation_puhef"),
+"Idle": SubResource("Animation_ht3pe"),
+"Left": SubResource("Animation_vtus8"),
+"RESET": SubResource("Animation_6qxuh"),
+"Right": SubResource("Animation_si5o6"),
+"Up": SubResource("Animation_p4ckr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1owv"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5fco"]
+size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_6xqgx"]
+resource_name = "AttackDown"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ac7t2"]
+resource_name = "AttackLeft"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_ux1cw"]
+resource_name = "AttackRight"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_yt61w"]
+resource_name = "AttackUp"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h2rs2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pk01o"]
+_data = {
+"AttackDown": SubResource("Animation_6xqgx"),
+"AttackLeft": SubResource("Animation_ac7t2"),
+"AttackRight": SubResource("Animation_ux1cw"),
+"AttackUp": SubResource("Animation_yt61w"),
+"RESET": SubResource("Animation_h2rs2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vacam"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d5yw"]
+size = Vector2(384, 336)
+
+[sub_resource type="SystemFont" id="SystemFont_csrf3"]
+subpixel_positioning = 0
+
+[node name="mob_1" type="CharacterBody2D"]
+script = ExtResource("1_cfrls")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aavmp")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-24, -24)
+texture = ExtResource("2_s8a1u")
+centered = false
+hframes = 5
+vframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1owv")
+
+[node name="HitArea" type="Area2D" parent="."]
+script = ExtResource("3_y8sp6")
+
+[node name="HitCollision" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("RectangleShape2D_b5fco")
+debug_color = Color(0.898039, 0.458824, 0, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HitArea"]
+position = Vector2(-24, -24)
+texture = ExtResource("2_004pa")
+centered = false
+hframes = 5
+vframes = 4
+frame = 1
+
+[node name="AnimationAttack" type="AnimationPlayer" parent="HitArea"]
+libraries = {
+"": SubResource("AnimationLibrary_pk01o")
+}
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("2_tsbgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_vacam")
+debug_color = Color(0.913725, 0, 0, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="ChaseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("RectangleShape2D_5d5yw")
+debug_color = Color(0.654902, 0.352941, 0.94902, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="enemy_damage_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="enemy_attack_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="DefShape" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -96.0
+offset_top = 112.0
+offset_right = -48.0
+offset_bottom = 152.0
+theme_override_fonts/normal_font = SubResource("SystemFont_csrf3")
+theme_override_font_sizes/normal_font_size = 9
+text = "Def Shape"
+
+[node name="HitArea2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -136.0
+offset_top = 104.0
+offset_right = -96.0
+offset_bottom = 144.0
+theme_override_fonts/normal_font = SubResource("SystemFont_csrf3")
+theme_override_font_sizes/normal_font_size = 9
+text = "HitArea"
+
+[node name="HurtBox2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -136.0
+offset_top = 96.0
+offset_right = -96.0
+offset_bottom = 136.0
+theme_override_fonts/normal_font = SubResource("SystemFont_csrf3")
+theme_override_font_sizes/normal_font_size = 9
+text = "HurtBox"
+
+[node name="ChaseArea2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -96.0
+offset_top = 96.0
+offset_right = -48.0
+offset_bottom = 112.0
+theme_override_fonts/normal_font = SubResource("SystemFont_csrf3")
+theme_override_font_sizes/normal_font_size = 9
+text = "ChaseArea"
+
+[connection signal="area_shape_entered" from="HitArea" to="." method="_on_hit_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="HitArea" to="." method="_on_hit_area_area_shape_exited"]
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="timeout" from="enemy_attack_cooldown" to="." method="_on_enemy_attack_cooldown_timeout"]

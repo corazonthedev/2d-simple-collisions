@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cklwnuwmwfp1u"]
+
+[ext_resource type="PackedScene" uid="uid://go7b1lijrr0c" path="res://Player/player.tscn" id="2_ol7fn"]
+[ext_resource type="PackedScene" uid="uid://cldonv6cud5tp" path="res://mobs/mob_1.tscn" id="2_w2b1t"]
+
+[node name="world" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(176, 336)
+
+[node name="player" parent="Node2D" instance=ExtResource("2_ol7fn")]
+metadata/_edit_lock_ = true
+
+[node name="mobs" type="Node2D" parent="."]
+position = Vector2(512, 312)
+
+[node name="Mob1" parent="mobs" instance=ExtResource("2_w2b1t")]
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 152.0
+offset_top = 136.0
+offset_right = 272.0
+offset_bottom = 232.0
+text = "x to attack
+up down right left buttons 
+for move "

@@ -1,0 +1,13 @@
+RichTextLabel
+CollisionShape2D
+Area2D
+CharacterBody2D
+RigidBody2D
+Timer
+Node2D
+Button
+PathFollow2D
+Path2D
+Marker2D
+AnimationPlayer
+Sprite2D

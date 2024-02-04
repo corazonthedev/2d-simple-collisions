@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b8a1bbw5d7pyw"]
+
+[node name="cooldowns" type="Node2D"]
+
+[node name="p_attack_cooldown" type="Timer" parent="."]
+
+[node name="e_atack_cooldown" type="Timer" parent="."]
